@@ -23,6 +23,8 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => ['auth']], function (){
-    Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('bookmarks');
+    Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('bookmarks.index');
+    Route::get('/bookmark/add', [BookmarkController::class, 'add'])->name('bookmarks.add');
+    Route::post('/bookmark/preview', [BookmarkController::class, 'getPreviewData'])->name('bookmark.preview');
 });
 
