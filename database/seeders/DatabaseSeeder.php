@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        \App\Models\User::create([
+        \App\Models\User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@me.com',
             'email_verified_at' => now(),
@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             'remember_token' => \Illuminate\Support\Str::random(10),
         ]);
 
-        \App\Models\Bookmark::factory(10)->create();
+        \App\Models\Bookmark::factory(10)->create([
+            'is_active' => 1,
+        ]);
     }
 }
